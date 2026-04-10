@@ -1,5 +1,6 @@
-package receita.prova.model;
+package Receita.prova.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,11 +11,17 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ingrediente {
+public class Ingrediente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+
+    @ManyToOne
+    @JoinColumn(name = "receita_id")
+    @JsonIgnore
+    private Receita receita;
+
 }
 
 

@@ -3,15 +3,58 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>prova</title>
+    <title>Receitas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<h1>Prova Tema 2 - Receita</h1>
-
 <body>
 
+    <h1>Prova Tema 2 - Receita</h1>
+
+    <h2>Cadastrar Receita</h2>
+    <form id="formReceita">
+        <label>Nome: <input type="text" id="nome"></label><br><br>
+        <label>Tempo de Preparo: <input type="number" id="tempoPreparo"></label><br><br>
+        <label>Custo Aproximado: <input type="number" step="0.01" id="custo"></label><br><br>
+        <button type="button" onclick="criarReceita()">Salvar Receita</button>
+    </form>
+
+    <hr>
+
+    <h2>Adicionar Ingrediente</h2>
+    <form id="formIngrediente">
+        <label>ID da Receita: <input type="number" id="receitaId"></label><br><br>
+        <label>Nome do Ingrediente: <input type="text" id="nomeIngrediente"></label><br><br>
+        <button type="button" onclick="adicionarIngrediente()">Adicionar Ingrediente</button>
+    </form>
+
+    <hr>
+
+
+    <h2>Remover Ingrediente</h2>
+    <form>
+        <label>ID da Receita: <input type="number" id="receitaIdRemover"></label><br><br>
+        <label>ID do Ingrediente: <input type="number" id="ingredienteIdRemover"></label><br><br>
+        <button type="button" onclick="removerIngrediente()">Remover Ingrediente</button>
+    </form>
+
+    <hr>
+
+
+    <h2>Deletar Receita</h2>
+    <form>
+        <label>ID da Receita: <input type="number" id="idDeletar"></label><br><br>
+        <button type="button" onclick="deletarReceita()">Deletar Receita</button>
+    </form>
+
+    <hr>
+
+
+    <h2>Receitas Cadastradas</h2>
+    <button onclick="listarReceitas()">Atualizar Lista</button>
+    <div id="lista"></div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
