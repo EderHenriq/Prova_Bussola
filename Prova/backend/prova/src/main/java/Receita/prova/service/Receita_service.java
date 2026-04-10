@@ -33,11 +33,15 @@ public class Receita_service {
         receitaRepository.deleteById(id);
     }
 
-    public Receita addIngrediente(Long id, Ingrediente item) {
-        return null;
+    public Receita addIngrediente(Long receitaId, Ingrediente item) {
+        Receita r = buscarPorId(receitaId);
+        r.addIngrediente(item);
+        return receitaRepository.save(r);
     }
 
     public Receita removeIngrediente(Long receitaId, Long ingredienteId) {
-        return null;
+        Receita r = buscarPorId(receitaId);
+        r.getIngredientes().removeIf(i -> i.getId().equals(ingredienteId));
+        return receitaRepository.save(r);
     }
 }
